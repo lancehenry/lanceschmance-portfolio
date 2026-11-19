@@ -1,0 +1,114 @@
+---
+import PageHero from '@/components/ui/PageHero.astro';
+import Pagination from '@/components/work/Pagination.astro';
+import ProjectCard from '@/components/work/ProjectCard.astro';
+import { focusPages } from '@/config/focus';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { disciplineKeys, disciplineLabel } from '@/lib/disciplines';
+import { breadcrumbs } from '@/lib/schema';
+import { usedDisciplines, workPageHref, type Project } from '@/lib/work';
+
+interface Props {
+  projects: Project[];
+  current: number;
+  total: number;
+}
+
+const { projects, current, total } = Astro.props;
+const title = current > 1 ? `Work, page ${current} of ${total}` : 'Work';
+const filters = usedDisciplines(projects, disciplineKeys);
+---
+
+<BaseLayout
+  title={title}
+  description="Case studies by Lance Schmittling across brand identity, web and UX/UI, motion, video, and marketing campaigns."
+  prevUrl={current > 1 ? workPageHref(current - 1) : undefined}
+  nextUrl={current < total ? workPageHref(current + 1) : undefined}
+  structuredData={{
+    '@context': 'https://schema.org',
+    ...breadcrumbs([
+      { name: 'Home', href: '/' },
+      { name: 'Work', href: '/work/' },
+    ]),
+  }}
+>
+  <PageHero
+    eyebrow={current > 1 ? `Selected work, page ${current}` : 'Selected work'}
+    title="Brand, digital, and motion work, from"
+    highlight="concept to launch."
+  />
+
+  <section class="shell mt-12 sm:mt-16" aria-label="Case studies">
+    {filters.length > 1 && (
+      <div class="flex flex-wrap items-center justify-between gap-4" data-needs-js>
+        <div role="group" aria-label="Filter by discipline" class="flex flex-wrap gap-2" data-filters>
+          <button type="button" class="filter-chip" aria-pressed="true" data-filter="all">
+            All
+          </button>
+          {filters.map((key) => (
+            <button type="button" class="filter-chip" aria-pressed="false" data-filter={key}>
+              {disciplineLabel(key)}
+            </button>
+          ))}
+        </div>
+        <p class="text-sm text-muted" aria-live="polite" data-filter-count></p>
+      </div>
+    )}
+
+    <div class="mt-12 grid gap-x-8 gap-y-16 md:grid-cols-2">
+      {projects.map((project, index) => (
+        <ProjectCard project={project} eager={index < 2} headingLevel="h2" />
+      ))}
+    </div>
+    <p class="mt-12 text-lead text-muted" hidden data-filter-empty>
+      No projects with that tag yet.
+    </p>
+    <Pagination current={current} total={total} />
+
+    <nav class="mt-20 flex flex-wrap items-baseline gap-x-6 gap-y-3 border-t border-line pt-8" aria-label="Focus pages">
+      <span class="eyebrow">Browse by focus</span>
+      {focusPages.map((page) => (
+        <a class="link" href={`/${page.slug}/`}>
+          {page.label}
+        </a>
+      ))}
+    </nav>
+  </section>
+</BaseLayout>
+
+<script>
+  const group = document.querySelector<HTMLElement>('[data-filters]');
+
+  if (group) {
+    const buttons = [...group.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    const cards = [...document.querySelectorAll<HTMLElement>('[data-project]')];
+    const count = document.querySelector<HTMLElement>('[data-filter-count]');
+    const empty = document.querySelector<HTMLElement>('[data-filter-empty]');
+    const keys = new Set(buttons.map((button) => button.dataset.filter));
+
+    const apply = (filter: string, updateUrl: boolean) => {
+      let shown = 0;
+      cards.forEach((card) => {
+        const match = filter === 'all' || (card.dataset.disciplines ?? '').split(' ').includes(filter);
+        card.hidden = !match;
+        if (match) shown += 1;
+      });
+      buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.filter === filter)));
+      if (count) count.textContent = `${shown} ${shown === 1 ? 'project' : 'projects'}`;
+      if (empty) empty.hidden = shown > 0;
+
+      if (updateUrl) {
+        const url = new URL(location.href);
+        if (filter === 'all') url.searchParams.delete('discipline');
+        else url.searchParams.set('discipline', filter);
+        history.replaceState(null, '', url);
+      }
+    };
+
+    buttons.forEach((button) => button.addEventListener('click', () => apply(button.dataset.filter ?? 'all', true)));
+
+    // Links like /work/?discipline=motion open with that filter on.
+    const initial = new URLSearchParams(location.search).get('discipline');
+    apply(initial && keys.has(initial) ? initial : 'all', false);
+  }
+</script>

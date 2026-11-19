@@ -1,0 +1,85 @@
+---
+import Icon from '@/components/ui/Icon.astro';
+import PageHero from '@/components/ui/PageHero.astro';
+import ProjectCard from '@/components/work/ProjectCard.astro';
+import { focusPages, type FocusPage } from '@/config/focus';
+import { siteConfig } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbs } from '@/lib/schema';
+import { getProjectsFor, type Project } from '@/lib/work';
+
+export async function getStaticPaths() {
+  return Promise.all(
+    focusPages.map(async (page) => ({
+      params: { focus: page.slug },
+      props: { page, projects: await getProjectsFor(page.disciplines) },
+    })),
+  );
+}
+
+interface Props {
+  page: FocusPage;
+  projects: Project[];
+}
+
+const { page, projects } = Astro.props;
+const workFilter = page.disciplines[0];
+---
+
+<BaseLayout
+  title={page.seoTitle}
+  description={page.description}
+  structuredData={{
+    '@context': 'https://schema.org',
+    ...breadcrumbs([
+      { name: 'Home', href: '/' },
+      { name: page.label, href: `/${page.slug}/` },
+    ]),
+  }}
+>
+  <PageHero eyebrow={page.eyebrow} title={page.title} highlight={page.highlight} text={page.text}>
+    <div class="rise mt-8 flex flex-wrap gap-3" style="--rise-step: 3">
+      <a class="btn btn-primary" href={siteConfig.action.href}>
+        {siteConfig.action.label}
+        <Icon name="arrow-up-right" class="icon-nudge-diagonal size-4" />
+      </a>
+      <a class="btn btn-ghost" href="/resume/">
+        View resume
+      </a>
+    </div>
+  </PageHero>
+
+  <section class="shell mt-16 sm:mt-20" aria-labelledby="points-title">
+    <h2 id="points-title" class="sr-only">What I bring</h2>
+    <ol class="grid gap-px overflow-hidden rounded-card border border-line bg-line sm:grid-cols-3">
+      {page.points.map((point, index) => (
+        <li class="reveal bg-surface p-7 sm:p-8">
+          <span class="text-sm font-bold tracking-[0.08em] text-accent-ink" aria-hidden="true">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <h3 class="mt-6 text-title">{point.title}</h3>
+          <p class="mt-3 text-muted">{point.text}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="shell mt-20 sm:mt-28" aria-labelledby="focus-work-title">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <h2 id="focus-work-title" class="text-section">Related work</h2>
+      <a class="btn btn-ghost" href={`/work/?discipline=${workFilter}`}>
+        All work
+        <Icon name="arrow-right" class="icon-nudge size-4" />
+      </a>
+    </div>
+    {projects.length > 0 ? (
+      <div class="mt-12 grid gap-x-8 gap-y-16 md:grid-cols-2">
+        {projects.map((project, index) => (
+          <ProjectCard project={project} eager={index < 2} />
+        ))}
+      </div>
+    ) : (
+      <p class="mt-8 text-lead text-muted">Case studies for this focus are on the way.</p>
+    )}
+  </section>
+</BaseLayout>

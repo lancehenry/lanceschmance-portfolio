@@ -1,0 +1,141 @@
+---
+import { Image } from 'astro:assets';
+import Icon from '@/components/ui/Icon.astro';
+import { disciplineLabel } from '@/lib/disciplines';
+import { projectHref, type Project } from '@/lib/work';
+
+interface Props {
+  project: Project;
+  /** The first cards on a page load eagerly. */
+  eager?: boolean;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { project, eager = false, headingLevel: Heading = 'h3' } = Astro.props;
+const { title, client, year, role, disciplines, cover, coverAlt, preview, tint } = project.data;
+---
+
+<article
+  class="project-card reveal relative"
+  style={`--tint: ${tint}`}
+  data-project
+  data-disciplines={disciplines.join(' ')}
+>
+  <div class="tint-panel relative aspect-5/4 overflow-hidden rounded-card">
+    <Image
+      src={cover}
+      alt={coverAlt}
+      widths={[640, 960, 1280, 1600, 1920]}
+      sizes="(min-width: 80rem) 44rem, (min-width: 48rem) 55vw, 110vw"
+      quality={90}
+      loading={eager ? 'eager' : 'lazy'}
+      class="project-shot shot absolute top-[12%] left-[8%] w-[115%] max-w-none"
+    />
+    {preview && (
+      <video
+        class="project-preview absolute inset-0 size-full object-cover"
+        src={preview}
+        muted
+        loop
+        playsinline
+        preload="none"
+        aria-hidden="true"
+        tabindex="-1"
+        data-preview
+      />
+    )}
+    <span
+      class="project-badge absolute top-5 right-5 grid size-11 place-items-center rounded-full bg-inverse text-on-inverse"
+      aria-hidden="true"
+    >
+      <Icon name="arrow-up-right" class="size-5" />
+    </span>
+  </div>
+  <div class="mt-5 flex items-center justify-between gap-4 text-sm text-muted">
+    <span><span class="font-medium text-ink">{client}</span> · {role}</span>
+    <span>{year}</span>
+  </div>
+  <Heading class="mt-2 text-title">
+    <a href={projectHref(project)} class="after:absolute after:inset-0 focus-visible:outline-none">
+      {title}
+    </a>
+  </Heading>
+  <ul class="mt-4 flex flex-wrap gap-1.5" aria-label="Disciplines">
+    {disciplines.slice(0, 3).map((discipline) => (
+      <li class="chip">{disciplineLabel(discipline)}</li>
+    ))}
+  </ul>
+</article>
+
+<script>
+  // Hover previews: only for mouse users who haven't asked for reduced motion.
+  if (matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
+    document.querySelectorAll<HTMLElement>('[data-project]').forEach((card) => {
+      const video = card.querySelector<HTMLVideoElement>('[data-preview]');
+      if (!video) return;
+      video.addEventListener('playing', () => video.classList.add('is-playing'));
+      card.addEventListener('pointerenter', () => {
+        video.play().catch(() => {});
+      });
+      card.addEventListener('pointerleave', () => {
+        video.classList.remove('is-playing');
+        video.pause();
+        video.currentTime = 0;
+      });
+    });
+  }
+</script>
+
+<style>
+  .project-card:has(a:focus-visible) {
+    outline: 2px solid var(--ink);
+    outline-offset: 8px;
+    border-radius: var(--radius-card);
+  }
+
+  .project-badge {
+    z-index: 1;
+    opacity: 0;
+    scale: 0.6;
+  }
+
+  .project-preview {
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+
+  .project-preview.is-playing {
+    opacity: 1;
+  }
+
+  .project-card:hover .project-badge,
+  .project-card:has(a:focus-visible) .project-badge {
+    opacity: 1;
+    scale: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-preview {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .project-shot {
+      transform-origin: 0 0;
+      transition: scale 700ms var(--ease-out-expo);
+    }
+
+    .project-badge {
+      transition:
+        opacity 250ms ease,
+        scale 450ms var(--ease-out-expo);
+    }
+
+    @media (hover: hover) {
+      .project-card:hover .project-shot {
+        scale: 1.04;
+      }
+    }
+  }
+</style>

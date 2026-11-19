@@ -1,0 +1,60 @@
+---
+import Icon from '@/components/ui/Icon.astro';
+import { reel } from '@/config/home';
+---
+
+{reel.loop && (
+  <section class="shell" aria-label="Showreel">
+    <div class="reel rise relative overflow-hidden rounded-card bg-night" style="--rise-step: 3">
+      <video
+        class="aspect-video w-full object-cover"
+        src={reel.loop}
+        poster={reel.poster || undefined}
+        muted
+        loop
+        playsinline
+        autoplay
+        preload="metadata"
+        aria-label="Showreel loop"
+        data-reel
+      />
+      <div class="absolute inset-x-0 bottom-0 flex flex-wrap items-center justify-between gap-3 p-4 sm:p-6">
+        {reel.full ? (
+          <a class="btn btn-accent" href={reel.full} rel="noopener">
+            {reel.label}
+            <Icon name="arrow-up-right" class="icon-nudge-diagonal size-4" />
+          </a>
+        ) : (
+          <span />
+        )}
+        <button
+          type="button"
+          class="btn btn-sm bg-surface/90 text-ink backdrop-blur"
+          data-reel-toggle
+          data-needs-js
+        >
+          Pause reel
+        </button>
+      </div>
+    </div>
+  </section>
+)}
+
+<script>
+  // Autoplaying motion must be pausable, and should not start for reduced-motion visitors.
+  const video = document.querySelector<HTMLVideoElement>('[data-reel]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-reel-toggle]');
+
+  if (video && toggle) {
+    const sync = () => {
+      toggle.textContent = video.paused ? 'Play reel' : 'Pause reel';
+    };
+
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) video.pause();
+
+    toggle.addEventListener('click', () => (video.paused ? video.play() : video.pause()));
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    sync();
+  }
+</script>

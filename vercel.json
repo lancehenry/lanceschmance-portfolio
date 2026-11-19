@@ -1,0 +1,11 @@
+{
+  "framework": "astro",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "redirects": [
+    { "source": "/reimagining-our-expertise", "destination": "/work/reimagining-our-expertise/", "permanent": true },
+    { "source": "/lets-get-trivial", "destination": "/work/lets-get-trivial/", "permanent": true },
+    { "source": "/magical-moments", "destination": "/work/magical-moments/", "permanent": true },
+    { "source": "/locations-section", "destination": "/work/locations-section/", "permanent": true }
+  ]
+}

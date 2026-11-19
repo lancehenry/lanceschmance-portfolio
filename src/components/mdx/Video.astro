@@ -1,0 +1,80 @@
+---
+/**
+ * A YouTube or Vimeo video that loads only when clicked, so case studies stay fast.
+ * <Video url="https://www.youtube.com/watch?v=ID" title="What the video is" caption="Optional" />
+ */
+interface Props {
+  url: string;
+  /** Describes the video for screen readers and the iframe title. */
+  title: string;
+  caption?: string;
+  /** Optional poster image path in `public/`. YouTube videos use their own thumbnail by default. */
+  poster?: string;
+}
+
+const { url, title, caption, poster } = Astro.props;
+
+const parse = (value: string) => {
+  const link = new URL(value);
+  const host = link.hostname.replace(/^www\./, '');
+  if (host === 'youtu.be') return { kind: 'youtube', id: link.pathname.slice(1) };
+  if (host.endsWith('youtube.com')) {
+    const id = link.searchParams.get('v') ?? link.pathname.split('/').filter(Boolean).pop() ?? '';
+    return { kind: 'youtube', id };
+  }
+  if (host.endsWith('vimeo.com')) return { kind: 'vimeo', id: link.pathname.split('/').filter(Boolean).pop() ?? '' };
+  throw new Error(`<Video> supports YouTube and Vimeo links, got: ${value}`);
+};
+
+const { kind, id } = parse(url);
+const embed =
+  kind === 'youtube'
+    ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`
+    : `https://player.vimeo.com/video/${id}?autoplay=1&dnt=1`;
+const thumb = poster ?? (kind === 'youtube' ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : undefined);
+---
+
+<figure class="not-prose">
+  <div class="lite-video relative aspect-video overflow-hidden rounded-card bg-night" data-video data-embed={embed} data-title={title}>
+    {thumb && <img src={thumb} alt="" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover" />}
+    <a
+      href={url}
+      class="video-play absolute inset-0 grid place-items-center"
+      rel="noopener"
+      aria-label={`Play video: ${title}`}
+    >
+      <span class="grid size-20 place-items-center rounded-full bg-accent text-on-accent shadow-lg">
+        <svg viewBox="0 0 24 24" class="ml-1 size-8" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"></path></svg>
+      </span>
+    </a>
+  </div>
+  {caption && <figcaption class="mx-auto mt-4 max-w-[44rem] text-[0.95rem] text-muted">{caption}</figcaption>}
+</figure>
+
+<script>
+  // Swap the poster for the real player on click. Without JS the link opens the video's page.
+  document.querySelectorAll<HTMLElement>('[data-video]').forEach((box) => {
+    box.querySelector('a')?.addEventListener('click', (event) => {
+      event.preventDefault();
+      const frame = document.createElement('iframe');
+      frame.src = box.dataset.embed ?? '';
+      frame.title = box.dataset.title ?? 'Video';
+      frame.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+      frame.allowFullscreen = true;
+      frame.className = 'absolute inset-0 size-full';
+      box.replaceChildren(frame);
+      frame.focus();
+    });
+  });
+</script>
+
+<style>
+  .video-play span {
+    transition: scale 300ms var(--ease-out-expo);
+  }
+
+  .video-play:hover span,
+  .video-play:focus-visible span {
+    scale: 1.08;
+  }
+</style>
