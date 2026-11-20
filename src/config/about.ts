@@ -1,29 +1,30 @@
-// Draft copy based on lanceschmance.com. Rewrite it in your own voice.
+// Based on Lance's LinkedIn About section (November 2026).
 export const about = {
   eyebrow: 'About',
   title: 'Where creative vision meets',
   highlight: 'technical execution.',
-  text: "I'm Lance Schmittling, a design leader with 15+ years across brand, web, motion, video, and marketing. I turn business goals into creative work that looks right, works well, and ships.",
+  text: "I'm Lance Schmittling, a multidisciplinary creative with 15+ years shaping brand identity, digital experiences, and integrated marketing, across agency, corporate, SaaS, and certification organizations.",
   portraitAlt: 'Portrait of Lance Schmittling',
   sections: [
     {
       title: 'Background',
       paragraphs: [
-        'I hold an MFA in Graphic Design and have spent my career in-house, where the work has to serve real business goals: national certification campaigns, SaaS lead generation, and brand and digital work for an engineering firm.',
+        'My work spans visual design, art direction, UX/UI strategy, motion design, and cross-channel campaigns. I started in an agency, supporting art direction across about 20 client accounts, then earned my MFA in graphic design while teaching undergraduate design studios.',
+        'Since then I have led design for national certification campaigns, built conversion-focused web and email for a SaaS company, and spent more than seven years shaping the digital brand of a national engineering firm across web, email, and social.',
       ],
     },
     {
       title: 'How I work',
       paragraphs: [
-        'I start with the goal and the audience, set a clear creative direction, and stay involved through production, so the idea that was approved is the idea that launches.',
-        'Because I design, animate, and build, I can talk to strategists, writers, developers, and executives in their own terms, and catch problems before they become expensive.',
+        'I align creative execution with business objectives, so brand systems, digital platforms, and campaigns are visually compelling, strategically grounded, and measured against real performance.',
+        'I partner closely with marketing, development, and leadership teams to turn complex ideas into cohesive visual systems and user-centered experiences. I think beyond individual assets, toward consistency, scalability, and long-term brand integrity.',
       ],
     },
     {
-      title: 'Focus',
+      title: 'What I am looking for',
       paragraphs: [
-        'Brand systems and governance, websites and UX/UI, motion and video storytelling, and campaigns that work across email, social, web, and print.',
-        "I'm looking for creative director, art director, brand, and senior design roles where that range is an advantage.",
+        'Roles where brand strategy, creative direction, and digital innovation meet: creative lead, art director, brand designer, or visual strategist.',
+        'Wherever I land, the goal is the same: elevate the storytelling, strengthen engagement, and make an impact people can measure.',
       ],
     },
   ],

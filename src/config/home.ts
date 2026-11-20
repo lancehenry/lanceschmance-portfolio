@@ -12,10 +12,10 @@ export const hero = {
   primary: { label: 'See selected work', href: '/#work' },
   secondary: { label: 'About me', href: '/about/' },
   facts: [
+    // Keep each label to about 28 characters so all three wrap to two even lines.
     { value: '15+', label: 'years in design and marketing' },
-    { value: 'MFA', label: "master's in graphic design" },
-    // Swap in a number you can stand behind (brands launched, sites shipped, team size).
-    { value: '6', label: 'disciplines, from brand to code' },
+    { value: '7+', label: 'years shaping a digital brand' },
+    { value: '3', label: 'years teaching college design' },
   ],
 };
 

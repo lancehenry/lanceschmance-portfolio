@@ -1,34 +1,58 @@
-// Draft based on lanceschmance.com. Check every line before publishing.
+// Based on Lance's LinkedIn experience (November 2026).
 export const resume = {
   eyebrow: 'Resume',
   title: '15+ years leading brand, digital, motion, and',
   highlight: 'campaign work.',
-  text: 'In-house creative leadership across AEC, SaaS, and national certification, from brand strategy and art direction to web, motion, and front-end builds.',
+  text: 'Brand, digital, and campaign work across agency, AEC, SaaS, and national certification organizations, from art direction and UX/UI strategy to motion and front-end builds.',
   snapshot: [
     // Add a { label: 'Location', value: '...' } row if you want one.
     { label: 'Focus', value: 'Creative direction, brand, web, motion' },
-    { label: 'Education', value: 'MFA, Graphic Design' },
+    { label: 'Education', value: 'MFA, Graphic Design, Fort Hays State University' },
     { label: 'Open to', value: 'Creative Director, Art Director, Brand Manager, Senior Designer' },
     { label: 'Contact', value: 'schmittling@gmail.com' },
   ],
   experience: [
     {
       role: 'Senior Digital Designer',
-      company: 'Henderson Companies',
-      period: '2019 - Present',
-      text: 'Brand identity and creative direction in partnership with executives, plus responsive email, motion, and UX/UI for the firm’s websites, including the Expertise and Locations redesigns.',
+      company: 'Henderson Engineers',
+      period: '2022 - Present',
+      text: 'Lead creative execution for the digital brand across web, email, and social, building scalable visual systems and cohesive campaigns. Drive UX/UI work through research, prototyping, and iteration, and use performance data to grow email engagement, social interaction, and reach.',
+    },
+    {
+      role: 'Digital Designer',
+      company: 'Henderson Engineers',
+      period: '2019 - 2022',
+      text: 'Designed web, email, and social campaigns across multiple business units, contributed wireframes and prototypes to UX/UI projects, and produced motion graphics for marketing campaigns.',
     },
     {
       role: 'Web Designer',
       company: 'Storable',
       period: '2018 - 2019',
-      text: 'Lead-generation landing pages, campaign microsites, and UX for SaaS products.',
+      text: 'Designed and built conversion-focused landing pages and email campaigns for SaaS customer acquisition, translating UX/UI concepts into HTML, CSS, and JavaScript.',
     },
     {
       role: 'Senior Designer',
-      company: 'NCCT',
-      period: '2010 - 2018',
-      text: 'Creative direction for national certification campaigns, and art direction for video and motion.',
+      company: 'National Center for Competency Testing (NCCT)',
+      period: '2013 - 2018',
+      text: 'Led design and art direction for web, print, and multimedia, evolved brand standards, and produced video and campaign assets supporting student acquisition and partner schools.',
+    },
+    {
+      role: 'Designer',
+      company: 'National Center for Competency Testing (NCCT)',
+      period: '2010 - 2013',
+      text: 'Designed print, digital, and web assets for certification programs, and contributed to video and multimedia production.',
+    },
+    {
+      role: 'Graduate Teaching Assistant',
+      company: 'Fort Hays State University',
+      period: '2007 - 2010',
+      text: 'Taught two weekly graphic design studios in concept, typography, and digital production, led formal critiques, and designed exhibition materials for the Moss-Thorns Gallery of Art.',
+    },
+    {
+      role: 'Associate Designer',
+      company: 'Design Resources, Inc.',
+      period: '2004 - 2007',
+      text: 'Supported creative development and art direction across about 20 client accounts, including apparel graphics and catalog photo shoots.',
     },
   ],
   capabilities: [
@@ -46,9 +70,9 @@ export const resume = {
     },
   ],
   education: [
-    // Fill in the school and year.
-    { title: 'MFA, Graphic Design', place: '[School]', period: '[Year]' },
+    // TODO: confirm the school and year.
+    { title: 'MFA, Graphic Design', place: 'Fort Hays State University', period: '2010' },
   ],
   /** Shown as simple chips. Edit to match what you actually use. */
-  tools: ['After Effects', 'Figma', 'Adobe Creative Cloud', 'HTML, CSS & JavaScript'],
+  tools: ['Adobe Creative Suite', 'After Effects', 'Figma', 'HTML, CSS & JavaScript'],
 };
