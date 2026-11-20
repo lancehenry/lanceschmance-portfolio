@@ -240,6 +240,11 @@
     font-weight: 750;
   }
 
+  /* Page-top headlines are set light, so their highlight is only a step heavier. */
+  h1 .highlight {
+    font-weight: 500;
+  }
+
   .filter-chip {
     display: inline-flex;
     align-items: center;

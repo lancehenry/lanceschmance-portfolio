@@ -12,7 +12,7 @@ const { eyebrow, title, highlight, text } = Astro.props;
 
 <header class="shell pt-16 sm:pt-24">
   {eyebrow && <p class="rise eyebrow">{eyebrow}</p>}
-  <h1 class="rise mt-6 max-w-[20ch] text-headline" style="--rise-step: 1">
+  <h1 class="rise mt-6 max-w-[20ch] text-headline font-normal tracking-[-0.03em]" style="--rise-step: 1">
     {title}
     {highlight && ' '}
     {highlight && <span class="highlight">{highlight}</span>}
