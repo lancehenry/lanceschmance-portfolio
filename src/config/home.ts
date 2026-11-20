@@ -13,7 +13,7 @@ export const hero = {
   secondary: { label: 'About me', href: '/about/' },
   facts: [
     { value: '15+', label: 'years in design and marketing' },
-    { value: 'MFA', label: 'in graphic design' },
+    { value: 'MFA', label: "master's in graphic design" },
     // Swap in a number you can stand behind (brands launched, sites shipped, team size).
     { value: '6', label: 'disciplines, from brand to code' },
   ],
