@@ -4,7 +4,7 @@
  * Add a key here before using it in a case study's `disciplines` list.
  */
 export const disciplines = {
-  'creative-direction': 'Creative direction',
+  'creative-direction': 'Creative & art direction',
   brand: 'Brand identity',
   web: 'Web & UX/UI',
   motion: 'Motion',
