@@ -100,12 +100,14 @@
   --ink: #111110;
   --body: #383835;
   --muted: #64635d;
-  /* Accent fill (buttons, dots, selection). Ink text on it passes contrast. */
-  --accent: #ff5b1f;
-  --accent-strong: #ff4708;
-  --on-accent: #111110;
-  /* Accent used as text on the canvas: darker so it passes 4.5:1. */
-  --accent-ink: #c2370a;
+  /* Cobalt accent fill (buttons, dots, selection). White text on it passes contrast. */
+  --accent: #2f4bff;
+  --accent-strong: #1f3be6;
+  --on-accent: #ffffff;
+  /* Accent used as text on the canvas: slightly deeper so it passes 4.5:1. */
+  --accent-ink: #2a43e0;
+  /* Accent used as text on dark panels (the footer "Let's talk" panel). */
+  --accent-on-night: #8b9dff;
   --inverse: #121211;
   --on-inverse: #fafaf7;
   --night: #121211;
@@ -128,7 +130,7 @@
   --ink: #f4f3ee;
   --body: #cfcec7;
   --muted: #9d9c95;
-  --accent-ink: #ff7a45;
+  --accent-ink: #8b9dff;
   --inverse: #f4f3ee;
   --on-inverse: #121211;
   --night: #171716;
@@ -241,7 +243,7 @@
 
   .bg-night .highlight,
   .on-night .highlight {
-    color: var(--accent);
+    color: var(--accent-on-night);
   }
 
   .filter-chip {
