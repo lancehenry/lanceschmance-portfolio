@@ -1,0 +1,14 @@
+---
+/**
+ * A photo that runs edge to edge across the browser, as a pause between sections.
+ * <FullBleed src={photo} alt="..." />
+ */
+import Shot from './Shot.astro';
+import type { ShotProps } from './types';
+
+type Props = ShotProps;
+---
+
+<figure class="not-prose full-bleed">
+  <Shot ratio="21 / 9" sizes="100vw" {...Astro.props} square />
+</figure>

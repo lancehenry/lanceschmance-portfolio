@@ -97,25 +97,53 @@ url: https://example.com   # optional "Visit" button
 ---
 ```
 
-### Components you can use inside a case study
+### Case study sections
 
-No imports needed:
+Every case study shares the same frame: title, summary, details row, then your story. Each `##` heading is numbered automatically (01, 02, 03…). Between the paragraphs, you stack the sections below. No imports needed. Use three or four per case study, and give each project one or two signature sections only it uses.
+
+Any image left out shows a labeled, striped placeholder that says what the shot should be, so you can lay out a page before you have every image.
+
+| Section | Use it for |
+| --- | --- |
+| `<BeforeAfter>` | The old and new version side by side |
+| `<Gallery>` | Grids: process frames, phone screens, applications, moodboards, storyboards (2, 3, 4, or 6 columns) |
+| `<Wide>` | One big image: a system sheet, final screen, style frame |
+| `<FullBleed>` | A photo edge to edge across the window, as a pause |
+| `<Lead>` | A large opening statement |
+| `<Quote>` | A testimonial with name and title |
+| `<Palette>` | Brand colors as real swatches |
+| `<AspectSet>` | The same piece in several formats (16:9, 1:1, 9:16) at their true shapes |
+| `<Video>` | A YouTube or Vimeo video that loads when someone presses play |
+| `<Results>` | The dark results panel: up to three numbers and a closing line |
+
+Swapping a placeholder for a real image: put the image in the project's folder, import it at the top of the MDX file (below the frontmatter), and pass it as `src` with `alt` text:
 
 ```mdx
-import poster from './poster.webp';
+import before from './before.webp';
+import after from './after.webp';
 
-<Figure src={poster} alt="Describe the image" caption="Optional caption" />
+<BeforeAfter
+  before={{ src: before, alt: 'The old Expertise page' }}
+  after={{ src: after, alt: 'The redesigned Expertise page' }}
+/>
 
-<Video url="https://www.youtube.com/watch?v=..." title="What the video is" caption="Optional" />
+<Gallery
+  cols={3}
+  ratio="1 / 1"
+  items={[
+    { src: sketch, alt: 'Navigation sketches' },
+    { label: 'Wireframes', note: 'Still a placeholder until I add the image' },
+  ]}
+/>
 
-<Stats items={[
-  { value: '38%', label: 'more sign-ups' },
-  { value: '2x', label: 'time on page' },
-  { value: '12', label: 'venues using the kit' },
-]} />
+<Wide src={system} alt="Type, color, and components" ratio="16 / 7" caption="Optional caption" />
+
+<Results items={[{ value: '38%', label: 'more time on page' }, { value: '2x', label: 'faster to a contact' }]}>
+  An optional closing line.
+</Results>
 ```
 
-`<Video>` takes YouTube or Vimeo links and only loads the player when someone presses play, so pages stay fast.
+Every image component takes the same fields: `src`, `alt`, `ratio` (like `"16 / 9"`; images are cropped to fill it), `label` and `note` (placeholder text), `tag` (a small label on the image), and `highlight` (an accent outline, like the moodboard you chose). The four current case studies show each section in use.
 
 ### Motion
 

@@ -1,0 +1,35 @@
+---
+/**
+ * A grid of images: process frames, applications, phone screens, moodboards, storyboards.
+ * <Gallery cols={3} ratio="1 / 1" caption="..." items={[{ label: 'Sketches', note: '...' }, { src: img, alt: '...' }]} />
+ * Each item takes the same fields as <Shot>, and can override `ratio`.
+ */
+import Shot from './Shot.astro';
+import type { ShotProps } from './types';
+
+interface Props {
+  items: ShotProps[];
+  /** Columns on wide screens: 2, 3, 4, or 6. Fewer on phones. */
+  cols?: 2 | 3 | 4 | 6;
+  ratio?: string;
+  caption?: string;
+}
+
+const { items, cols = 3, ratio = '4 / 3', caption } = Astro.props;
+const grid = {
+  2: 'sm:grid-cols-2',
+  3: 'sm:grid-cols-2 lg:grid-cols-3',
+  4: 'grid-cols-2 lg:grid-cols-4',
+  6: 'grid-cols-3 lg:grid-cols-6',
+}[cols];
+const sizes = `(min-width: 80rem) ${Math.round(76 / cols)}rem, ${cols >= 4 ? 50 : 100}vw`;
+---
+
+<figure class="not-prose">
+  <div class:list={['grid', cols === 6 ? 'gap-3' : 'gap-4 sm:gap-6', grid]}>
+    {items.map((item) => (
+      <Shot ratio={ratio} sizes={sizes} {...item} />
+    ))}
+  </div>
+  {caption && <figcaption class="mx-auto mt-4 max-w-[44rem] text-[0.95rem] text-muted">{caption}</figcaption>}
+</figure>

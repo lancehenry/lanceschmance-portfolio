@@ -1,0 +1,31 @@
+---
+/**
+ * The same piece in several formats, shown at their true shapes side by side.
+ * <AspectSet items={[{ ratio: '16 / 9', label: '16:9', note: 'Web and email' }, { ratio: '1 / 1', ... }, { ratio: '9 / 16', ... }]} />
+ */
+import Shot from './Shot.astro';
+import type { ShotProps } from './types';
+
+interface Props {
+  items: (ShotProps & { ratio: string })[];
+  caption?: string;
+}
+
+const { items, caption } = Astro.props;
+// Give each format a share of the row based on its width-to-height ratio, so they line up at the bottom.
+const share = (ratio: string) => {
+  const [w, h] = ratio.split('/').map((n) => Number(n.trim()));
+  return w && h ? w / h : 1;
+};
+---
+
+<figure class="not-prose">
+  <div class="flex flex-wrap items-end gap-4 sm:flex-nowrap sm:gap-6">
+    {items.map((item) => (
+      <div class="min-w-0 basis-full sm:basis-0" style={`flex-grow: ${share(item.ratio)}`}>
+        <Shot sizes="(min-width: 40rem) 40vw, 100vw" {...item} />
+      </div>
+    ))}
+  </div>
+  {caption && <figcaption class="mx-auto mt-4 max-w-[44rem] text-[0.95rem] text-muted">{caption}</figcaption>}
+</figure>

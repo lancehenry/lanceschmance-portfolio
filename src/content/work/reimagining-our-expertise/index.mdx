@@ -17,44 +17,63 @@ featured: true
 url: https://www.hendersonengineers.com/
 ---
 
-{/* TODO: Replace the opening line with your strongest one-sentence result. */}
+{/* TODO: Replace this opening line with your strongest one-sentence result. */}
 
 Henderson was reorganizing from a practice-based structure into broader sectors. The old Expertise pages were dated, hard to navigate, and no longer matched how the firm described itself.
 
 ## The challenge
 
-The redesign had to do four things at once:
+The redesign had to explain the shift to a sector-based model, line up with the firm's evolving brand, work better for engineers and outside visitors alike, and scale as sectors are added or the structure changes again.
 
-- Explain the shift to a sector-based model clearly to clients and prospects.
-- Line up with the firm's evolving brand and messaging.
-- Be easier and more accessible for both internal engineers and outside visitors.
-- Scale as new sectors are added or the structure changes again.
+<BeforeAfter
+  before={{ note: 'Screenshot of the old Expertise page, desktop' }}
+  after={{ note: 'The new Expertise landing page, same crop and scale' }}
+  caption="Before and after at the same size, so the change reads at a glance."
+/>
 
 ## My approach
 
-**Discovery.** I started from what I already knew about the brand, its audiences, and its digital presence, then reviewed competitor sites and gathered visual references to balance usability with brand consistency.
+I started from what I knew about the brand and its audiences, reviewed competitor sites, then sketched wireframes for the navigation, the Expertise landing page, and templates for sector and practice pages. Each sector page pulls in related leaders, projects, news, and thought leadership, so visitors can keep exploring.
 
-**Structure.** I sketched wireframes for the new navigation, the main Expertise page, and templates for sector and practice pages. Each sector page pulls in related leaders, projects, news, and thought leadership, so visitors can keep exploring without leaving the page.
+<Gallery
+  cols={3}
+  ratio="1 / 1"
+  items={[
+    { label: 'Sketches', note: 'Photo of early navigation sketches' },
+    { label: 'Wireframes', note: 'Sector page wireframe, grayscale' },
+    { label: 'Prototype', note: 'Prototype screen with a feedback note' },
+  ]}
+  caption="Process frames, deliberately unpolished: they show how the thinking evolved."
+/>
 
-**Design and prototype.** I designed an interactive, accessible visual style and built a working prototype of the core screens: navigation, the Expertise landing page, and the sector and practice templates.
+## The system
 
-**Testing.** I walked marketing leadership, engineers, and client relationship directors through the prototype, refined the UI based on their feedback, and worked with developers to keep the build faithful to the design.
+I designed an interactive, accessible visual style and built a working prototype of the core screens, then walked marketing leadership, engineers, and client relationship directors through it and refined the UI from their feedback.
 
-{/*
-  Add images by putting them in this folder and uncommenting:
-  import landing from './landing.webp';
-  <Figure src={landing} alt="Describe the screen" caption="What to notice" />
-*/}
+<Wide label="System sheet" note="Type scale, color, and the sector page components on one board" ratio="16 / 7" />
 
 ## The result
 
 The new Expertise section launched after nearly a year from concept to release. Internal teams praised how much easier content is to find, and outside visitors found it more intuitive and engaging.
 
-{/*
-  If you have numbers (traffic, time on page, fewer support requests), add them:
-  <Stats items={[{ value: '00%', label: 'what it measures' }, { value: '00', label: '...' }, { value: '0x', label: '...' }]} />
-*/}
+<Gallery
+  cols={3}
+  ratio="9 / 19.5"
+  items={[
+    { label: 'Mobile', note: 'Expertise landing page' },
+    { label: 'Mobile', note: 'A sector page' },
+    { label: 'Mobile', note: 'Project list' },
+  ]}
+/>
 
-## What's next
+<FullBleed label="Full-bleed photo" note="Henderson project photography, edge to edge" />
 
-The framework is set up for more: richer sector pages with case studies and multimedia, and smarter search and filtering across projects and thought leadership.
+<Results
+  items={[
+    { value: '[00%]', label: '[Metric, e.g. time on page]' },
+    { value: '[00]', label: '[Metric]' },
+    { value: '[0×]', label: '[Metric]' },
+  ]}
+>
+  The framework is ready for richer sector pages, case studies, and smarter search across projects and thought leadership.
+</Results>

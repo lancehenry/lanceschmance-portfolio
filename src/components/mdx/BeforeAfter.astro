@@ -1,0 +1,26 @@
+---
+/**
+ * The old and new version side by side, at the same crop.
+ * <BeforeAfter before={{ src: old, alt: '...' }} after={{ src: neu, alt: '...' }} caption="..." />
+ */
+import Shot from './Shot.astro';
+import type { ShotProps } from './types';
+
+interface Props {
+  before?: ShotProps;
+  after?: ShotProps;
+  ratio?: string;
+  caption?: string;
+}
+
+const { before = {}, after = {}, ratio = '4 / 3', caption } = Astro.props;
+const sizes = '(min-width: 80rem) 38rem, (min-width: 40rem) 50vw, 100vw';
+---
+
+<figure class="not-prose">
+  <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+    <Shot label="Before" note="The old version" ratio={ratio} sizes={sizes} {...before} tag="Before" />
+    <Shot label="After" note="The new version, same crop and scale" ratio={ratio} sizes={sizes} {...after} tag="After" />
+  </div>
+  {caption && <figcaption class="mx-auto mt-4 max-w-[44rem] text-[0.95rem] text-muted">{caption}</figcaption>}
+</figure>

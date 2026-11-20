@@ -1,0 +1,19 @@
+---
+/**
+ * One large image across the content width: a system sheet, final screen, style frame.
+ * <Wide label="System sheet" note="Type, color, components" ratio="16 / 7" caption="..." />
+ */
+import Shot from './Shot.astro';
+import type { ShotProps } from './types';
+
+interface Props extends ShotProps {
+  caption?: string;
+}
+
+const { caption, ...shot } = Astro.props;
+---
+
+<figure class="not-prose">
+  <Shot ratio="16 / 9" {...shot} />
+  {caption && <figcaption class="mx-auto mt-4 max-w-[44rem] text-[0.95rem] text-muted">{caption}</figcaption>}
+</figure>

@@ -151,6 +151,8 @@
   }
 
   body {
+    /* Full-bleed images use 100vw; clip keeps the scrollbar width from adding a sideways scroll. */
+    overflow-x: clip;
     background: var(--canvas);
     color: var(--ink);
     font-family: var(--font-sans);

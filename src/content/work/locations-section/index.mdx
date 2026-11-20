@@ -15,34 +15,63 @@ featured: true
 url: https://www.hendersonengineers.com/locations/
 ---
 
-The Locations section is where clients go to find out where the firm works and who to call. It was static, dated, and hard to navigate.
+<Lead>
+  Clients came to this section to find out where the firm works and who to call. It was static, dated, and took too
+  many clicks to get anywhere.
+</Lead>
 
-## The challenge
+<FullBleed label="Full-bleed photo" note="An office or project exterior from Henderson's photography" />
 
-- Modernize the section and make it easier to use.
-- Help clients reach the right team with fewer clicks.
-- Make it easy to add new offices and keep details current.
-- Meet mobile and accessibility best practices.
+## Discovery
 
-## My approach
+I audited the existing pages, reviewed how other AEC and client-facing firms handle locations, and studied traffic patterns and navigation paths. The goals: reach the right team in fewer clicks, make new offices easy to add, and meet mobile and accessibility best practices.
 
-**Discovery.** I audited the existing pages, reviewed how other AEC and client-facing firms handle locations, and studied traffic patterns and navigation paths.
+<Gallery
+  cols={2}
+  items={[
+    { label: 'Audit', note: 'The old page, annotated with pain points' },
+    { label: 'Benchmark', note: 'Three competitor location pages, side by side' },
+  ]}
+/>
 
-**Design.** I designed a modular layout and an interactive map that visitors can switch between list and region views.
+## Map and list, one system
 
-**Integration.** The pages connect the CMS to the firm's CRM, so office details update automatically instead of by hand.
+I designed a modular layout and an interactive map that switches between list and region views. The pages connect the CMS to the firm's CRM, so office details update automatically instead of by hand.
 
-**Testing.** I reviewed the design with client directors and office leadership, ran informal usability tests with clients and internal users, and refined the visual consistency and micro-interactions.
+<Wide
+  label="Interaction"
+  note="Map view and list view side by side, or a short silent screen recording of the toggle"
+  caption="A looping screen recording is the most convincing way to show an interaction."
+/>
 
-{/*
-  import map from './map.webp';
-  <Figure src={map} alt="Describe the screen" caption="What to notice" />
-*/}
+<Gallery
+  cols={3}
+  ratio="9 / 19.5"
+  items={[
+    { label: 'Mobile', note: 'Map view' },
+    { label: 'Mobile', note: 'Office list' },
+    { label: 'Mobile', note: 'Office detail with contacts' },
+  ]}
+/>
+
+## Testing
+
+I reviewed the design with client directors and office leadership, ran informal usability tests with clients and internal users, and refined visual consistency and micro-interactions before launch.
+
+<Quote name="[Name]" title="[Title]">
+  [A line from a client director or office leader about the new section.]
+</Quote>
 
 ## The result
 
-Clients now reach the right contact with fewer clicks, and internal teams find it much easier to keep information up to date. Feedback after launch singled out the clarity, the interactive map, and the overall polish.
+Clients now reach the right contact with fewer clicks, and internal teams find it much easier to keep information up to date.
 
-## What's next
-
-Regional project highlights, team spotlights, and community stories, with a quarterly review of engagement to keep refining the layout.
+<Results
+  items={[
+    { value: '[00%]', label: '[Fewer clicks to a contact]' },
+    { value: '[00]', label: '[Offices updated automatically]' },
+    { value: '[0×]', label: '[Metric]' },
+  ]}
+>
+  Feedback after launch singled out the clarity, the interactive map, and the overall polish.
+</Results>

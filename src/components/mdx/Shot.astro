@@ -1,0 +1,67 @@
+---
+/**
+ * One image in a case study, or a labeled placeholder until you have it.
+ * <Shot src={image} alt="..." ratio="16 / 9" />
+ * <Shot label="System sheet" note="Type scale, color, components" ratio="16 / 7" />
+ * Other case study components use this for each of their images.
+ */
+import { Image } from 'astro:assets';
+import type { ShotProps } from './types';
+
+
+type Props = ShotProps;
+
+const {
+  src,
+  alt = '',
+  label = 'Image',
+  note,
+  ratio = '16 / 10',
+  tag,
+  highlight = false,
+  square = false,
+  sizes = '(min-width: 80rem) 76rem, 100vw',
+} = Astro.props;
+---
+
+<div
+  class:list={['shot-box relative overflow-hidden', !square && 'rounded-card', highlight && 'is-highlight']}
+  style={`aspect-ratio: ${ratio}`}
+>
+  {src ? (
+    <Image
+      {src}
+      {alt}
+      widths={[480, 800, 1200, 1600, 2400, 3200]}
+      {sizes}
+      quality={88}
+      class="absolute inset-0 size-full object-cover"
+    />
+  ) : (
+    <div class="shot-placeholder absolute inset-0 grid place-content-center gap-1 p-5 text-center" role="img" aria-label={`Placeholder: ${label}${note ? `. ${note}` : ''}`}>
+      <span class="font-semibold text-ink">{label}</span>
+      {note && <span class="mx-auto max-w-[36ch] text-sm leading-snug text-muted">{note}</span>}
+    </div>
+  )}
+  {tag && (
+    <span class="absolute top-3 left-3 rounded-full bg-surface/90 px-3 py-1 text-xs font-semibold text-ink backdrop-blur">
+      {tag}
+    </span>
+  )}
+</div>
+
+<style>
+  .shot-placeholder {
+    background: var(--sunken);
+    background-image: repeating-linear-gradient(
+      135deg,
+      transparent 0 14px,
+      color-mix(in oklab, var(--line-strong) 35%, transparent) 14px 15px
+    );
+  }
+
+  .is-highlight {
+    outline: 3px solid var(--accent);
+    outline-offset: -3px;
+  }
+</style>

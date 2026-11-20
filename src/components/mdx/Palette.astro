@@ -1,0 +1,23 @@
+---
+/**
+ * Brand colors as real swatches.
+ * <Palette colors={[{ name: 'Trivia Red', hex: '#E63946' }, ...]} />
+ */
+interface Props {
+  colors: { name: string; hex: string }[];
+}
+
+const { colors } = Astro.props;
+---
+
+<ul class="not-prose grid grid-cols-2 gap-4 sm:grid-cols-4" aria-label="Brand colors">
+  {colors.map((color) => (
+    <li class="flex flex-col gap-2">
+      <span class="block aspect-[3/4] rounded-card border border-line" style={`background: ${color.hex}`}></span>
+      <span class="text-sm leading-snug">
+        <span class="block font-semibold text-ink">{color.name}</span>
+        <span class="text-muted uppercase">{color.hex}</span>
+      </span>
+    </li>
+  ))}
+</ul>

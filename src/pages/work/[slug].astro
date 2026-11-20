@@ -141,8 +141,40 @@ const meta = [
 </BaseLayout>
 
 <style>
+  .case-prose {
+    counter-reset: case-section;
+  }
+
   .case-prose > :global(*) {
     margin-inline: auto;
+  }
+
+  /* Number each section heading: 01, 02, 03... */
+  .case-prose > :global(h2) {
+    counter-increment: case-section;
+  }
+
+  .case-prose > :global(h2)::before {
+    content: counter(case-section, decimal-leading-zero);
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--muted);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  /* Big visual sections get more room around them than paragraphs do. */
+  .case-prose > :global(.not-prose) {
+    margin-block: 3.5rem;
+  }
+
+  /* <FullBleed> breaks out of the content column to the edges of the window. */
+  .case-prose > :global(.full-bleed) {
+    width: 100vw;
+    max-width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    margin-block: 4.5rem;
   }
 
   .case-prose > :global(*:first-child) {

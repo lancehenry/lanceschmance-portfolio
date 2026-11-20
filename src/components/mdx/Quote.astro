@@ -1,0 +1,21 @@
+---
+/**
+ * A testimonial with attribution. Quote marks are added for you; put the quote on its own line.
+ * <Quote name="Jane Doe" title="Director of Marketing">It changed how clients find us.</Quote>
+ */
+interface Props {
+  name: string;
+  title?: string;
+}
+
+const { name, title } = Astro.props;
+---
+
+<figure class="not-prose max-w-[52rem]">
+  <blockquote class="my-0 max-w-none font-normal">
+    <slot />
+  </blockquote>
+  <figcaption class="mt-5 text-muted">
+    <span class="font-semibold text-ink">{name}</span>{title && `, ${title}`}
+  </figcaption>
+</figure>
