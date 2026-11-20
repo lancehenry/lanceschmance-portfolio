@@ -12,7 +12,8 @@ interface Props {
 }
 
 const { project, eager = false, headingLevel: Heading = 'h3' } = Astro.props;
-const { title, client, year, role, disciplines, cover, coverAlt, preview, tint } = project.data;
+const { title, client, year, role, disciplines, cover, coverAlt, coverStyle, preview, tint } = project.data;
+const bleed = coverStyle === 'bleed';
 ---
 
 <article
@@ -29,7 +30,9 @@ const { title, client, year, role, disciplines, cover, coverAlt, preview, tint }
       sizes="(min-width: 80rem) 44rem, (min-width: 48rem) 55vw, 110vw"
       quality={90}
       loading={eager ? 'eager' : 'lazy'}
-      class="project-shot shot absolute top-[12%] left-[8%] w-[115%] max-w-none"
+      class={bleed
+        ? 'project-shot project-shot-bleed absolute inset-0 size-full object-cover'
+        : 'project-shot shot absolute top-[12%] left-[8%] w-[115%] max-w-none'}
     />
     {preview && (
       <video
@@ -118,6 +121,10 @@ const { title, client, year, role, disciplines, cover, coverAlt, preview, tint }
     .project-preview {
       display: none;
     }
+  }
+
+  .project-shot.project-shot-bleed {
+    transform-origin: 50% 50%;
   }
 
   @media (prefers-reduced-motion: no-preference) {

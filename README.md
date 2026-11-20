@@ -88,6 +88,7 @@ duration: 8 weeks          # optional
 team: 2 designers, 1 dev   # optional
 cover: ./cover.webp
 coverAlt: Describe the image for screen readers and search engines
+coverStyle: framed         # framed = flat screenshot shown inset; bleed = finished mockup shown edge to edge
 preview: /previews/new-project.mp4   # optional hover video, see below
 tint: '#e7e2d6'            # background color behind the cover
 order: 5

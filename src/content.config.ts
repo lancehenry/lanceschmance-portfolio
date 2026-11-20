@@ -19,6 +19,11 @@ const work = defineCollection({
       team: z.string().optional(),
       cover: image(),
       coverAlt: z.string(),
+      /**
+       * `framed` (default): a flat screenshot, shown inset with a shadow on the tint.
+       * `bleed`: a finished image or device mockup with its own background, shown edge to edge.
+       */
+      coverStyle: z.enum(['framed', 'bleed']).default('framed'),
       /** A short muted MP4 in `public/`, played when a card is hovered. */
       preview: z.string().optional(),
       tint: z

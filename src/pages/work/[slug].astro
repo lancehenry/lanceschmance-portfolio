@@ -23,8 +23,23 @@ interface Props {
 }
 
 const { project, next } = Astro.props;
-const { title, client, summary, year, role, disciplines, services, duration, team, cover, coverAlt, tint, url } =
-  project.data;
+const {
+  title,
+  client,
+  summary,
+  year,
+  role,
+  disciplines,
+  services,
+  duration,
+  team,
+  cover,
+  coverAlt,
+  coverStyle,
+  tint,
+  url,
+} = project.data;
+const bleed = coverStyle === 'bleed';
 const { Content } = await render(project);
 const share = await getImage({ src: cover, width: 1200, height: 630, fit: 'cover', position: 'top', format: 'png' });
 
@@ -101,7 +116,7 @@ const meta = [
     </header>
 
     <div class="shell mt-12 sm:mt-16">
-      <div class="tint-panel overflow-hidden rounded-card p-[4%] sm:p-[6%]">
+      <div class:list={['tint-panel overflow-hidden rounded-card', !bleed && 'p-[4%] sm:p-[6%]']}>
         <Image
           src={cover}
           alt={coverAlt}
@@ -110,7 +125,7 @@ const meta = [
           quality={90}
           loading="eager"
           fetchpriority="high"
-          class="shot w-full"
+          class={bleed ? 'block w-full' : 'shot w-full'}
         />
       </div>
     </div>
