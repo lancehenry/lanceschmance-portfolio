@@ -27,8 +27,8 @@ const year = new Date().getFullYear();
         <p class="mt-6 max-w-xl text-lead text-night-muted">{closing.text}</p>
         <div class="mt-10 flex flex-wrap items-center gap-3">
           <a class="btn btn-accent" href={`mailto:${email}`}>
-            {email}
-            <Icon name="arrow-up-right" class="icon-nudge-diagonal size-4" />
+            <Icon name="mail" class="size-4" />
+            Email me
           </a>
           <a class="btn text-night-ink underline-offset-4 hover:underline" href="/resume/">
             View resume
@@ -73,11 +73,17 @@ const year = new Date().getFullYear();
       </ul>
     </nav>
 
-    <nav aria-labelledby="footer-elsewhere">
-      <h2 id="footer-elsewhere" class="text-sm font-medium text-muted">
-        Elsewhere
+    <nav aria-labelledby="footer-contact">
+      <h2 id="footer-contact" class="text-sm font-medium text-muted">
+        Contact
       </h2>
       <ul class="mt-4 grid gap-2.5">
+        <li>
+          <a class="footer-link inline-flex items-center gap-2.5" href={`mailto:${email}`}>
+            <Icon name="mail" class="size-3.5 text-muted" />
+            Email me
+          </a>
+        </li>
         {siteConfig.socials.map((social) => (
           <li>
             <a class="footer-link inline-flex items-center gap-2.5" href={social.href} rel="me noopener">
@@ -86,6 +92,12 @@ const year = new Date().getFullYear();
             </a>
           </li>
         ))}
+        <li>
+          <a class="footer-link inline-flex items-center gap-2.5" href={siteConfig.resumePdf || '/resume/'}>
+            <Icon name="file-text" class="size-3.5 text-muted" />
+            {siteConfig.resumePdf ? 'Resume (PDF)' : 'Resume'}
+          </a>
+        </li>
       </ul>
     </nav>
 

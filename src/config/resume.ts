@@ -9,7 +9,6 @@ export const resume = {
     { label: 'Focus', value: 'Creative direction, brand, web, motion' },
     { label: 'Education', value: 'MFA, Graphic Design, Fort Hays State University' },
     { label: 'Open to', value: 'Creative Director, Art Director, Brand Manager, Senior Designer' },
-    { label: 'Contact', value: 'schmittling@gmail.com' },
   ],
   experience: [
     {
