@@ -137,7 +137,7 @@ Each has its own headline, three proof points, and the projects tagged with matc
 
 ### Colors, type, and logo
 
-- Colors: the variables at the top of `:root` in `src/styles/global.css`. The accent is cobalt blue: `--accent` is the fill for buttons, `--accent-ink` is the version used for text on light backgrounds, and `--accent-on-night` is the lighter version for dark panels. Dark mode overrides `--accent-ink` under `:root.dark`.
+- Colors: the variables at the top of `:root` in `src/styles/global.css`. The accent is one azure blue (`--accent`, #1f6fe5) in both light and dark mode. Use it for large text, filled buttons (with white text), and small decorative marks. It is not dark enough for small text on light backgrounds or light enough on dark ones, so small labels use `--ink` or `--muted`.
 - Type: Albert Sans (variable, all weights plus italics), self-hosted in `public/fonts/albert-sans/` and set as `--font-sans` in `src/styles/global.css`.
 - Logo: the "LS" monogram in `src/components/ui/Logomark.astro` and `public/favicon.svg`.
 

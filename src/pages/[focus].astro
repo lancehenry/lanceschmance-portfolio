@@ -54,7 +54,7 @@ const workFilter = page.disciplines[0];
     <ol class="grid gap-px overflow-hidden rounded-card border border-line bg-line sm:grid-cols-3">
       {page.points.map((point, index) => (
         <li class="reveal bg-surface p-7 sm:p-8">
-          <span class="text-sm font-bold tracking-[0.08em] text-accent-ink" aria-hidden="true">
+          <span class="text-sm font-bold tracking-[0.08em] text-muted" aria-hidden="true">
             {String(index + 1).padStart(2, '0')}
           </span>
           <h3 class="mt-6 text-title">{point.title}</h3>

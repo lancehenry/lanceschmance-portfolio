@@ -100,14 +100,14 @@
   --ink: #111110;
   --body: #383835;
   --muted: #64635d;
-  /* Cobalt accent fill (buttons, dots, selection). White text on it passes contrast. */
-  --accent: #2f4bff;
-  --accent-strong: #1f3be6;
+  /* Azure accent, one color in light and dark mode.
+     White text on it passes 4.5:1 (buttons). As text it passes 3:1 on both light and dark
+     backgrounds, which covers large text (headline highlights) but not small body text,
+     so keep small labels in --ink or --muted. */
+  --accent: #1f6fe5;
+  --accent-strong: #185cc8;
   --on-accent: #ffffff;
-  /* Accent used as text on the canvas: slightly deeper so it passes 4.5:1. */
-  --accent-ink: #2a43e0;
-  /* Accent used as text on dark panels (the footer "Let's talk" panel). */
-  --accent-on-night: #8b9dff;
+  --accent-ink: var(--accent);
   --inverse: #121211;
   --on-inverse: #fafaf7;
   --night: #121211;
@@ -130,7 +130,6 @@
   --ink: #f4f3ee;
   --body: #cfcec7;
   --muted: #9d9c95;
-  --accent-ink: #8b9dff;
   --inverse: #f4f3ee;
   --on-inverse: #121211;
   --night: #171716;
@@ -239,11 +238,6 @@
   .highlight {
     color: var(--accent-ink);
     font-weight: 750;
-  }
-
-  .bg-night .highlight,
-  .on-night .highlight {
-    color: var(--accent-on-night);
   }
 
   .filter-chip {
