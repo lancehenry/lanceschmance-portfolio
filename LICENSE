@@ -24,10 +24,8 @@ SOFTWARE.
 
 Third-party assets bundled with this theme keep their own licenses:
 
-- Hanken Grotesk (public/fonts/hanken-grotesk) — SIL Open Font License 1.1.
-  See public/fonts/hanken-grotesk/OFL.txt.
-- Instrument Serif (public/fonts/instrument-serif) — SIL Open Font License 1.1.
-  See public/fonts/instrument-serif/OFL.txt.
+- Albert Sans (public/fonts/albert-sans) — SIL Open Font License 1.1.
+  See public/fonts/albert-sans/OFL.txt.
 - Lucide icons (src/icons/lucide) — ISC License.
   See src/icons/lucide/LICENSE.
 - Bootstrap Icons (src/icons/bootstrap) — MIT License.

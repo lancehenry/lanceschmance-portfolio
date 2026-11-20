@@ -138,7 +138,7 @@ Each has its own headline, three proof points, and the projects tagged with matc
 ### Colors, type, and logo
 
 - Colors: the variables at the top of `:root` in `src/styles/global.css`. `--accent` is the orange fill; `--accent-ink` is the darker version used for text so it stays readable.
-- Type: Hanken Grotesk, self-hosted in `public/fonts/`.
+- Type: Albert Sans (variable, all weights plus italics), self-hosted in `public/fonts/albert-sans/` and set as `--font-sans` in `src/styles/global.css`.
 - Logo: the "LS" monogram in `src/components/ui/Logomark.astro` and `public/favicon.svg`.
 
 ## Where things live
