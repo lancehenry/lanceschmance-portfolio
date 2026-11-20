@@ -139,7 +139,7 @@ Each has its own headline, three proof points, and the projects tagged with matc
 
 - Colors: the variables at the top of `:root` in `src/styles/global.css`. The accent is one azure blue (`--accent`, #1f6fe5) in both light and dark mode. Use it for large text, filled buttons (with white text), and small decorative marks. It is not dark enough for small text on light backgrounds or light enough on dark ones, so small labels use `--ink` or `--muted`.
 - Type: Albert Sans (variable, all weights plus italics), self-hosted in `public/fonts/albert-sans/` and set as `--font-sans` in `src/styles/global.css`.
-- Logo: the "LS" hexagon mark in `src/components/ui/Logomark.astro` (header and footer, drawn in the current text color), `public/favicon.svg` (switches to light for dark browser tabs), and `public/apple-touch-icon.png` (iPhone home screen).
+- Logo: the "LS" hexagon mark in `src/components/ui/Logomark.astro` (header and footer, drawn in the current text color), `public/favicon.svg` (switches to light for dark browser tabs), plus PNG/ICO fallbacks: `favicon.ico`, `favicon-96x96.png`, `apple-touch-icon.png` (iPhone home screen), and `icon-192.png` / `icon-512.png` with `site.webmanifest` (Android).
 
 ## Where things live
 
