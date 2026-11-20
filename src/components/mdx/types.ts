@@ -10,6 +10,8 @@ export interface ShotProps {
   note?: string;
   /** CSS aspect ratio, e.g. "16 / 9". Images are cropped to fill it. */
   ratio?: string;
+  /** Which part of the image to keep when it is cropped. `top` suits full-page screenshots and wireframes. */
+  position?: 'center' | 'top';
   /** A small tag on the image, e.g. "Before". */
   tag?: string;
   /** Outline the image in the accent color (e.g. the chosen direction). */

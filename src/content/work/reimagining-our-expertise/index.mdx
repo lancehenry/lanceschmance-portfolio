@@ -17,6 +17,11 @@ featured: true
 url: https://www.hendersonengineers.com/
 ---
 
+import wireExpertise from './wireframe-expertise-desktop.png';
+import wireSector from './wireframe-sector-desktop.png';
+import wireExpertiseMobile from './wireframe-expertise-mobile.png';
+import wireSectorMobile from './wireframe-sector-mobile.png';
+
 {/* TODO: Replace this opening line with your strongest one-sentence result. */}
 
 Henderson was reorganizing from a practice-based structure into broader sectors. The old Expertise pages were dated, hard to navigate, and no longer matched how the firm described itself.
@@ -36,14 +41,55 @@ The redesign had to explain the shift to a sector-based model, line up with the 
 I started from what I knew about the brand and its audiences, reviewed competitor sites, then sketched wireframes for the navigation, the Expertise landing page, and templates for sector and practice pages. Each sector page pulls in related leaders, projects, news, and thought leadership, so visitors can keep exploring.
 
 <Gallery
-  cols={3}
+  cols={2}
   ratio="1 / 1"
   items={[
     { label: 'Sketches', note: 'Photo of early navigation sketches' },
-    { label: 'Wireframes', note: 'Sector page wireframe, grayscale' },
     { label: 'Prototype', note: 'Prototype screen with a feedback note' },
   ]}
   caption="Process frames, deliberately unpolished: they show how the thinking evolved."
+/>
+
+<Gallery
+  cols={2}
+  ratio="4 / 5"
+  items={[
+    {
+      src: wireExpertise,
+      alt: 'Wireframe of the Expertise landing page: hero, an intro linking to all six sectors, six sector cards listing their practices, and a newsletter signup',
+      position: 'top',
+      tag: 'Expertise landing',
+    },
+    {
+      src: wireSector,
+      alt: 'Wireframe of the Retail sector page: hero, five practice tiles, leaders, a projects carousel, thought leadership, and a newsletter signup',
+      position: 'top',
+      tag: 'Sector page',
+    },
+  ]}
+  caption="Key templates, wireframed: the Expertise landing page and a sector page. Numbered callouts mark the main UX decisions."
+/>
+
+<Gallery
+  cols={4}
+  ratio="9 / 19.5"
+  items={[
+    {
+      src: wireExpertiseMobile,
+      alt: 'Mobile wireframe of the Expertise landing page, with sector links as tappable buttons',
+      position: 'top',
+      tag: 'Wireframe',
+    },
+    { label: 'Final', note: 'The finished Expertise landing page on mobile', tag: 'Final' },
+    {
+      src: wireSectorMobile,
+      alt: 'Mobile wireframe of the Retail sector page, with practices as a compact list',
+      position: 'top',
+      tag: 'Wireframe',
+    },
+    { label: 'Final', note: 'The finished sector page on mobile', tag: 'Final' },
+  ]}
+  caption="Wireframe next to the finished screen. On mobile, sector links become tappable buttons and practices become a compact list."
 />
 
 ## The system
@@ -55,16 +101,6 @@ I designed an interactive, accessible visual style and built a working prototype
 ## The result
 
 The new Expertise section launched after nearly a year from concept to release. Internal teams praised how much easier content is to find, and outside visitors found it more intuitive and engaging.
-
-<Gallery
-  cols={3}
-  ratio="9 / 19.5"
-  items={[
-    { label: 'Mobile', note: 'Expertise landing page' },
-    { label: 'Mobile', note: 'A sector page' },
-    { label: 'Mobile', note: 'Project list' },
-  ]}
-/>
 
 <FullBleed label="Full-bleed photo" note="Henderson project photography, edge to edge" />
 

@@ -18,6 +18,7 @@ const {
   note,
   ratio = '16 / 10',
   tag,
+  position = 'center',
   highlight = false,
   square = false,
   sizes = '(min-width: 80rem) 76rem, 100vw',
@@ -35,7 +36,7 @@ const {
       widths={[480, 800, 1200, 1600, 2400, 3200]}
       {sizes}
       quality={88}
-      class="absolute inset-0 size-full object-cover"
+      class:list={['absolute inset-0 size-full object-cover', position === 'top' && 'object-top']}
     />
   ) : (
     <div class="shot-placeholder absolute inset-0 grid place-content-center gap-1 p-5 text-center" role="img" aria-label={`Placeholder: ${label}${note ? `. ${note}` : ''}`}>
