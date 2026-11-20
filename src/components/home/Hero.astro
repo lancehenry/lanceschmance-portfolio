@@ -58,7 +58,8 @@ import { siteConfig } from '@/config/site';
   /* Every word sits in the same grid cell, so the line never reflows as they swap. */
   .rotator {
     display: inline-grid;
-    vertical-align: bottom;
+    /* Sit on the same baseline as the rest of the headline. */
+    vertical-align: baseline;
     color: var(--accent-ink);
     font-weight: 500;
   }
@@ -72,10 +73,10 @@ import { siteConfig } from '@/config/site';
   }
 
   @media (prefers-reduced-motion: no-preference) {
+    /* Clip words as they slide, without overflow or padding, which would shift the baseline.
+       The negative insets leave room for ascenders and descenders. */
     .rotator {
-      overflow: hidden;
-      /* Room for descenders while words slide in and out. */
-      padding-bottom: 0.08em;
+      clip-path: inset(-0.15em -0.5em -0.3em -0.5em);
     }
 
     .rotator-word,
