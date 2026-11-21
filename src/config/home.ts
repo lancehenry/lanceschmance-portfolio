@@ -1,6 +1,7 @@
 export const hero = {
   greeting: "Hi, I'm Lance.",
-  title: 'I lead creative work across',
+  // The non-breaking space keeps "I" on the same line as "lead", so no line ends with "I".
+  title: 'I\u00a0lead creative work across',
   /**
    * The last word of the headline cycles through these (in the accent color).
    * Motion is skipped for visitors who ask for reduced motion: they see the first word.

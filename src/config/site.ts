@@ -39,10 +39,10 @@ export const siteConfig = {
   /** The short line under your name in the footer, on every page. */
   footerTagline: 'Design leader turning strategy into brand, web, motion, and campaign work people remember.',
 
-  /** The pill above the homepage headline. Set `enabled: true` if you want one. */
+  /** The pill above the homepage headline, with your portrait (src/assets/images/portrait.webp). */
   availability: {
-    enabled: false,
-    label: 'Open to creative leadership roles',
+    enabled: true,
+    label: 'Available for select freelance projects',
   },
 
   /** The button at the end of the header and in the mobile menu. */
