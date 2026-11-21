@@ -75,10 +75,7 @@ const tenure = (roles: Job[]) => {
           <li>
             <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
               <h3 class="text-title">{company}</h3>
-              <p class="text-muted">
-                {startOf(roles.at(-1)?.period ?? '')} - {endOf(roles[0]?.period ?? '')}
-                {tenure(roles) && <span> · {tenure(roles)}</span>}
-              </p>
+              <p class="text-muted">{tenure(roles)}</p>
             </div>
             <ol class="career-track mt-6">
               {roles.map((job, index) => (
