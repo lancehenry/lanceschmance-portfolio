@@ -8,14 +8,14 @@ import { siteConfig } from '@/config/site';
 
 <section class="shell pt-14 pb-20 sm:pt-20 sm:pb-28 lg:pt-24" aria-labelledby="hero-title">
   {siteConfig.availability.enabled && (
-    <p class="rise inline-flex items-center gap-3 rounded-full border border-line bg-surface py-1.5 pr-5 pl-1.5 text-sm text-body">
+    <p class="rise inline-flex items-center gap-3 rounded-full border border-line bg-surface py-1.5 pr-4 pl-1.5 text-sm text-body shadow-[0_1px_2px_rgb(18_18_17/0.04)]">
       <Image
         src={portrait}
         alt=""
-        width={64}
-        height={64}
+        width={56}
+        height={56}
         loading="eager"
-        class="size-8 rounded-full object-cover object-top"
+        class="size-7 rounded-full object-cover object-top"
       />
       <span class="availability-dot" aria-hidden="true"></span>
       {siteConfig.availability.label}
