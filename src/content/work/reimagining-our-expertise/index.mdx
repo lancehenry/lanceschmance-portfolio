@@ -21,6 +21,16 @@ import wireExpertise from './wireframe-expertise-desktop.png';
 import wireSector from './wireframe-sector-desktop.png';
 import wireExpertiseMobile from './wireframe-expertise-mobile.png';
 import wireSectorMobile from './wireframe-sector-mobile.png';
+import finalExpertise from './final-expertise-desktop.jpg';
+import finalVenue from './final-venue-desktop.jpg';
+import finalRestaurant from './final-restaurant-desktop.jpg';
+import finalSports from './final-sports-desktop.jpg';
+import finalVenuePractices from './final-venue-practices.jpg';
+import finalExpertiseMobile from './final-expertise-mobile.jpg';
+import finalVenueMobile from './final-venue-mobile.jpg';
+import finalMobileRow from './final-mobile-row.jpg';
+import systemSheet from './system-sheet.jpg';
+import fullbleedSofi from './fullbleed-sofi.jpg';
 
 {/* TODO: Replace this opening line with your strongest one-sentence result. */}
 
@@ -32,7 +42,10 @@ The redesign had to explain the shift to a sector-based model, line up with the 
 
 <BeforeAfter
   before={{ note: 'Screenshot of the old Expertise page, desktop' }}
-  after={{ note: 'The new Expertise landing page, same crop and scale' }}
+  after={{
+    src: finalExpertise,
+    alt: 'The new Henderson Expertise landing page in a browser: a bold green-barred heading over a full-width project photo carousel',
+  }}
   caption="Before and after at the same size, so the change reads at a glance."
 />
 
@@ -62,7 +75,7 @@ I started from what I knew about the brand and its audiences, reviewed competito
     },
     {
       src: wireSector,
-      alt: 'Wireframe of the Retail sector page: hero, five practice tiles, leaders, a projects carousel, thought leadership, and a newsletter signup',
+      alt: 'Wireframe of a sector page: hero, five practice tiles, leaders, a projects carousel, thought leadership, and a newsletter signup',
       position: 'top',
       tag: 'Sector page',
     },
@@ -80,14 +93,22 @@ I started from what I knew about the brand and its audiences, reviewed competito
       position: 'top',
       tag: 'Wireframe',
     },
-    { label: 'Final', note: 'The finished Expertise landing page on mobile', tag: 'Final' },
+    {
+      src: finalExpertiseMobile,
+      alt: 'The finished Expertise landing page on an iPhone',
+      tag: 'Final',
+    },
     {
       src: wireSectorMobile,
-      alt: 'Mobile wireframe of the Retail sector page, with practices as a compact list',
+      alt: 'Mobile wireframe of a sector page, with practices as a compact list',
       position: 'top',
       tag: 'Wireframe',
     },
-    { label: 'Final', note: 'The finished sector page on mobile', tag: 'Final' },
+    {
+      src: finalVenueMobile,
+      alt: 'The finished Venue sector page on an iPhone',
+      tag: 'Final',
+    },
   ]}
   caption="Wireframe next to the finished screen. On mobile, sector links become tappable buttons and practices become a compact list."
 />
@@ -96,13 +117,55 @@ I started from what I knew about the brand and its audiences, reviewed competito
 
 I designed an interactive, accessible visual style and built a working prototype of the core screens, then walked marketing leadership, engineers, and client relationship directors through it and refined the UI from their feedback.
 
-<Wide label="System sheet" note="Type scale, color, and the sector page components on one board" ratio="16 / 7" />
+<Gallery
+  cols={3}
+  ratio="4 / 3"
+  items={[
+    {
+      src: finalVenue,
+      alt: 'The Venue sector page in a browser, with a full-width photo of the Film Alley theater',
+      tag: 'Sector',
+    },
+    {
+      src: finalSports,
+      alt: 'The Sports practice page in a browser, with a full-width photo of SoFi Stadium',
+      tag: 'Practice',
+    },
+    {
+      src: finalRestaurant,
+      alt: 'The Restaurant practice page in a browser, with a full-width photo of a Wagamama dining room',
+      tag: 'Practice',
+    },
+  ]}
+  caption="One template family from sector to practice: the same header, hero, and captioned photo, so every page feels like part of one system."
+/>
+
+<Wide
+  src={finalVenuePractices}
+  alt="The Venue sector page scrolled to its practice tiles (Aviation, Convention Center, Entertainment, Recreation and Wellness, Sports) and the Leaders, Projects, In the News, and Thought Leadership tabs"
+  ratio="4 / 3"
+  caption="Each sector page leads with photo tiles for its practices, then tabs that pull in leaders, projects, news, and thought leadership."
+/>
+
+<Wide
+  src={systemSheet}
+  alt="System sheet: the green-barred page header, practice tiles, a leader card, section tabs, and the color palette of green, charcoal, light grey, and white"
+  ratio="16 / 7"
+  caption="The building blocks, reused across every sector and practice page."
+/>
+
+<Wide
+  src={finalMobileRow}
+  alt="The Expertise, Venue, Restaurant, and Sports pages on four iPhones"
+  ratio="7 / 4"
+  caption="Built mobile-first: the same pages on a phone."
+/>
 
 ## The result
 
 The new Expertise section launched after nearly a year from concept to release. Internal teams praised how much easier content is to find, and outside visitors found it more intuitive and engaging.
 
-<FullBleed label="Full-bleed photo" note="Henderson project photography, edge to edge" />
+<FullBleed src={fullbleedSofi} alt="SoFi Stadium seating bowl and field under its translucent roof and oval video board" />
 
 <Results
   items={[
