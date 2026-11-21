@@ -85,7 +85,10 @@ const meta = [
       </p>
 
       <div class="rise mt-12 grid gap-8 border-t border-line pt-8 lg:grid-cols-[1fr_auto]" style="--rise-step: 3">
-        <dl class="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3 lg:flex lg:gap-14">
+        <dl
+          class="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3 lg:grid-cols-[repeat(var(--meta-cols),minmax(0,1fr))] lg:gap-x-10"
+          style={`--meta-cols: ${meta.length}`}
+        >
           {meta.map((item) => (
             <div>
               <dt class="text-sm text-muted">{item.label}</dt>
@@ -94,9 +97,10 @@ const meta = [
           ))}
         </dl>
         {url && (
-          <a class="btn btn-ghost btn-sm self-start" href={url} rel="noopener">
+          <a class="btn btn-ghost btn-sm self-start" href={url} target="_blank" rel="noopener noreferrer">
             Visit {client}
             <Icon name="arrow-up-right" class="icon-nudge-diagonal size-4" />
+            <span class="sr-only">(opens in a new tab)</span>
           </a>
         )}
       </div>
