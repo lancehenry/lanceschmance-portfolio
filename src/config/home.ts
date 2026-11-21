@@ -45,27 +45,27 @@ export const capabilities = {
   items: [
     {
       title: 'Creative & art direction',
-      text: 'Setting the concept and visual direction, then guiding designers, writers, and partners to deliver it.',
+      text: 'Setting the creative vision from concept to execution, and leading cross-functional teams to tell stories that land.',
     },
     {
       title: 'Brand strategy & governance',
-      text: 'Identity systems and guidelines that stay consistent as a brand grows across teams and channels.',
+      text: 'Evolving brand identity systems end to end, so every touchpoint and campaign stays consistent and on strategy.',
     },
     {
-      title: 'Web & UX/UI',
-      text: 'Information architecture, interface design, and prototypes for sites that are easy to use and easy to maintain.',
+      title: 'UX/UI & digital product strategy',
+      text: 'User-centered sites and products shaped by rapid prototyping and data, with accessibility and conversion built in.',
     },
     {
-      title: 'Motion & video',
-      text: 'Storyboards, animation, and edits that turn a message into something people actually watch.',
+      title: 'Omnichannel marketing',
+      text: 'Campaigns that pair strong craft with technical strategy to grow reach across social, email, and web.',
     },
     {
-      title: 'Omnichannel campaigns',
-      text: 'Email, social, landing pages, and print that work together toward one goal.',
+      title: 'Motion design & visual storytelling',
+      text: 'Motion graphics and video that bring brand stories to life and keep people watching.',
     },
     {
-      title: 'Front-end & SEO',
-      text: 'Building what I design, with the technical and search groundwork that helps it get found.',
+      title: 'Technical strategy & SEO',
+      text: 'Front-end and SEO know-how that make what I design fast, findable, and built to scale.',
     },
   ],
 };
