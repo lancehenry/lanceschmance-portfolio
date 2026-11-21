@@ -36,6 +36,9 @@ export const siteConfig = {
     ],
   },
 
+  /** The short line under your name in the footer, on every page. */
+  footerTagline: 'Design leader turning strategy into brand, web, motion, and campaign work people remember.',
+
   /** The pill above the homepage headline. Set `enabled: true` if you want one. */
   availability: {
     enabled: false,
