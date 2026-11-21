@@ -204,12 +204,6 @@ const tenure = (roles: Job[]) => {
     content: '';
   }
 
-  /* The current or newest role gets a filled dot. */
-  .career-role:first-child::before {
-    background: var(--accent);
-    border-color: var(--accent);
-  }
-
   /* The rail connects a role's dot to the next one down. */
   .career-role:not(:last-child)::after {
     position: absolute;
