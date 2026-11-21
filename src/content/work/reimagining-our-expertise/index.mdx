@@ -1,11 +1,11 @@
 ---
 title: An Expertise section rebuilt around how clients think
 client: Henderson Engineers
-summary: Redesigning an engineering firm's Expertise section around a new sector-based strategy, with a navigation and page system built to grow with the business.
+summary: Redesigning an engineering firm's Expertise section around a new sector-based strategy, from remapping project data in the CRM to a navigation and page system built to grow with the business.
 year: 2025 # TODO: confirm the launch year
-role: UX/UI designer
+role: UX/UI design and data architecture
 disciplines: [web, creative-direction]
-services: [Information architecture, Wireframes, Prototype, UI design]
+services: [Information architecture, CRM data mapping, Wireframes, Prototype, UI design]
 duration: 40 weeks
 team: Henderson digital team # TODO: who you worked with (devs, marketing)
 cover: ./cover.jpg
@@ -31,13 +31,13 @@ import iaBeforeAfter from './ia-before-after.jpg';
 import systemSheet from './system-sheet.jpg';
 import fullbleedSofi from './fullbleed-sofi.jpg';
 
-I redesigned Henderson's Expertise section from the ground up: six sectors, 28 practices, and one page system that holds them all together.
+I redesigned Henderson's Expertise section from the ground up, from the project data behind it to the pages on top: six sectors, 28 practices, and one system that holds them all together.
 
 Henderson was reorganizing from a practice-based structure into broader sectors. The old Expertise pages were dated, hard to navigate, and no longer matched how the firm described itself.
 
 ## The challenge
 
-The redesign had to explain the shift to a sector-based model, line up with the firm's evolving brand, work better for engineers and outside visitors alike, and scale as sectors are added or the structure changes again.
+The redesign had to explain the shift to a sector-based model, bring years of project data along with it, line up with the firm's evolving brand, work better for engineers and outside visitors alike, and scale as sectors are added or the structure changes again.
 
 <Wide
   src={iaBeforeAfter}
@@ -99,6 +99,12 @@ I started from what I knew about the brand and its audiences, reviewed competito
   ]}
   caption="Wireframe next to the finished screen. On mobile, sector links become tappable buttons and practices become a compact list."
 />
+
+## Behind the pages
+
+A new structure on the site only works if the data underneath matches it. Our project records in the internal CRM were still organized the old way, so I led the decisions on how to reorganize project data to fit the new sector and practice structure, then remapped those records so every item lined up with what visitors see on the site.
+
+That backend work is what keeps the front end honest. With sector and practice data aligned at the source, each sector page can pull in its related projects, and the site stays in step with the CRM as the structure changes.
 
 ## The system
 
