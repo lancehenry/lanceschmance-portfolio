@@ -7,8 +7,8 @@ role: Brand designer
 disciplines: [brand, print, campaign]
 services: [Logo, Color and type system, Table tents, Answer sheets, Coasters, Merch concepts]
 duration: 8 weeks
-cover: ./coasters.jpg
-coverAlt: Two square Let's Get Trivial coasters. One is white with a badge reading "Useless knowledge, not afraid to use it" around the lightbulb-head mark; the other is black with the full logo in white.
+cover: ./cover.jpg
+coverAlt: A laptop on a stack of books showing a neon green Let's Get Trivial screen that reads "Trivia starts soon," with the logo on either side.
 tint: '#dcdcdc'
 order: 2
 featured: true
@@ -18,6 +18,7 @@ import wordmark from './wordmark.jpg';
 import tableTents from './table-tents.jpg';
 import hoodies from './hoodies.jpg';
 import answerSheets from './answer-sheets.jpg';
+import coasters from './coasters.jpg';
 
 Let's Get Trivial needed a brand as fun as its events: bold, a little quirky, and easy to spot in a crowded local event scene.
 
@@ -29,7 +30,7 @@ I started with research into other trivia and entertainment brands to find the g
 
 ## The identity
 
-The mark is a lightbulb with a human profile inside it, the moment an answer clicks, wrapped in an arched wordmark. It is strictly black and white, so it prints cleanly on anything from a coaster to a clipboard and never fights a venue's own branding.
+The mark is a lightbulb with a human profile inside it, the moment an answer clicks, wrapped in an arched wordmark. The core kit is black and white, so it prints cleanly on anything from a coaster to a clipboard and never fights a venue's own branding. On screens, a hit of neon green turns the volume up.
 
 <Wide
   src={wordmark}
@@ -42,6 +43,7 @@ The mark is a lightbulb with a human profile inside it, the moment an answer cli
     { name: 'Trivia Black', hex: '#191919' },
     { name: 'Answer White', hex: '#FFFFFF' },
     { name: 'Sheet Grey', hex: '#E6E6E6' },
+    { name: 'Neon Green', hex: '#00ED00' },
   ]}
 />
 
@@ -58,9 +60,14 @@ The voice does as much work as the mark. Table tents lead with lines like "No ph
 />
 
 <Gallery
-  cols={2}
+  cols={3}
   ratio="4 / 3"
   items={[
+    {
+      src: coasters,
+      alt: "Two square coasters. One is white with a badge reading 'Useless knowledge, not afraid to use it' around the lightbulb-head mark; the other is black with the full logo in white.",
+      tag: 'Coasters',
+    },
     {
       src: hoodies,
       alt: "Black hoodies, front and back. The front has a small white logo on the chest; the back reads 'This is my trivia uniform.'",
@@ -72,7 +79,7 @@ The voice does as much work as the mark. Table tents lead with lines like "No ph
       tag: 'Game night',
     },
   ]}
-  caption="Merch that players actually want to wear, and the answer sheets every team fills out on game night."
+  caption="Coasters with a little attitude, merch that players actually want to wear, and the answer sheets every team fills out on game night."
 />
 
 ## The result
