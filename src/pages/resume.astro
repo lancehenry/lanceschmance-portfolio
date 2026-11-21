@@ -111,9 +111,9 @@ const tenure = (roles: Job[]) => {
       <h2 id="capabilities-title" class="eyebrow self-start">
         Capabilities
       </h2>
-      <div class="border-t border-line">
+      <div class="divide-y divide-line">
         {[...resume.capabilities, { title: 'Tools', skills: resume.tools }].map((group) => (
-          <div class="grid gap-x-8 gap-y-2 border-b border-line py-5 sm:grid-cols-[12rem_minmax(0,1fr)]">
+          <div class="grid gap-x-8 gap-y-2 py-5 first:pt-0 last:pb-0 sm:grid-cols-[12rem_minmax(0,1fr)]">
             <h3 class="font-semibold">{group.title}</h3>
             <ul class="skill-list text-body" aria-label={group.title}>
               {group.skills.map((skill) => (
