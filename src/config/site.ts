@@ -42,7 +42,7 @@ export const siteConfig = {
   /** The pill above the homepage headline, with your portrait (src/assets/images/portrait.webp). */
   availability: {
     enabled: true,
-    label: 'Available for select freelance projects',
+    label: 'Taking select projects',
   },
 
   /** The button at the end of the header and in the mobile menu. */
