@@ -96,7 +96,7 @@ const tenure = (roles: Job[]) => {
                         </svg>
                         Promoted {startOf(job.period)}
                       </span>
-                      <span class="sr-only">from {roles[index + 1]?.role} to {job.role}</span>
+                      <span class="sr-only">{` from ${roles[index + 1]?.role} to ${job.role}`}</span>
                     </p>
                   )}
                 </li>
