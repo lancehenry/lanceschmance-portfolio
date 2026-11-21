@@ -111,11 +111,18 @@ const tenure = (roles: Job[]) => {
       <h2 id="capabilities-title" class="eyebrow self-start">
         Capabilities
       </h2>
-      <ul class="grid gap-8 sm:grid-cols-3">
+      <ul class="grid gap-x-10 gap-y-10 sm:grid-cols-2">
         {resume.capabilities.map((item) => (
           <li>
             <h3 class="font-semibold">{item.title}</h3>
             <p class="mt-2 text-muted">{item.text}</p>
+            {item.skills && (
+              <ul class="mt-4 flex flex-wrap gap-1.5" aria-label={`${item.title} skills`}>
+                {item.skills.map((skill) => (
+                  <li class="chip">{skill}</li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>
@@ -125,14 +132,17 @@ const tenure = (roles: Job[]) => {
       <h2 id="education-title" class="eyebrow self-start">
         Education
       </h2>
-      <ul class="grid gap-6">
+      <ul class="grid gap-8">
         {resume.education.map((item) => (
-          <li class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1">
-            <span>
-              <span class="font-semibold">{item.title}</span>
-              <span class="text-muted">, {item.place}</span>
-            </span>
-            <span class="text-sm text-muted">{item.period}</span>
+          <li>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1">
+              <h3>
+                <span class="font-semibold">{item.title}</span>
+                <span class="text-muted">, {item.place}</span>
+              </h3>
+              {item.period && <p class="text-sm text-muted">{item.period}</p>}
+            </div>
+            {item.text && <p class="mt-1.5 max-w-2xl text-muted">{item.text}</p>}
           </li>
         ))}
       </ul>

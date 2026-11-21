@@ -54,24 +54,82 @@ export const resume = {
       text: 'Supported creative development and art direction across about 20 client accounts, including apparel graphics and catalog photo shoots.',
     },
   ],
+  /** Skill groups, from LinkedIn. `skills` show as chips under each group. */
   capabilities: [
     {
       title: 'Creative leadership',
-      text: 'Creative and art direction, brand strategy and governance, and partnering with executives.',
+      text: 'Setting the direction and guiding the team from concept to launch.',
+      skills: [
+        'Creative direction',
+        'Art direction',
+        'Creative concept development',
+        'Photo shoot direction',
+        'Creative mentorship',
+        'Cross-functional collaboration',
+      ],
     },
     {
-      title: 'Digital',
-      text: 'UX/UI, web design, responsive email, front-end development, and SEO.',
+      title: 'Brand',
+      text: 'Identity systems that stay consistent as a brand grows.',
+      skills: [
+        'Brand strategy',
+        'Brand identity & visual systems',
+        'Visual design',
+        'Typography',
+        'Print design',
+        'Exhibition design',
+      ],
     },
     {
-      title: 'Storytelling',
-      text: 'Motion design, video, and omnichannel campaigns from concept to delivery.',
+      title: 'Digital & UX',
+      text: 'Research-led sites and interfaces, designed and built.',
+      skills: [
+        'UX/UI design',
+        'UX research',
+        'Information architecture',
+        'Wireframing & prototyping',
+        'Design systems',
+        'Web & landing page design',
+        'Front-end development',
+      ],
+    },
+    {
+      title: 'Marketing & motion',
+      text: 'Campaigns and stories that perform across every channel.',
+      skills: [
+        'Integrated marketing',
+        'Campaign development',
+        'Digital strategy',
+        'Email marketing',
+        'Performance marketing',
+        'Conversion optimization',
+        'Analytics',
+        'Motion design',
+        'Multimedia production',
+      ],
     },
   ],
   education: [
-    // TODO: confirm the school and year.
-    { title: 'MFA, Graphic Design', place: 'Fort Hays State University', period: '2010' },
+    // TODO: add years (or leave `period` empty to hide them).
+    {
+      title: 'MFA, Graphic Design',
+      place: 'Fort Hays State University',
+      period: '',
+      text: 'Advanced conceptual design and visual systems, while teaching undergraduate design studios.',
+    },
+    {
+      title: 'BA, Graphic Design',
+      place: 'Avila University',
+      period: '',
+      text: 'Conceptual design, typography, and interactive media.',
+    },
+    {
+      title: 'Full Stack Web Development',
+      place: 'The University of Kansas',
+      period: '',
+      text: 'An immersive program in front-end and back-end development.',
+    },
   ],
-  /** Shown as simple chips. Edit to match what you actually use. */
-  tools: ['Adobe Creative Suite', 'After Effects', 'Figma', 'HTML, CSS & JavaScript'],
+  /** Shown as simple chips. */
+  tools: ['Adobe Creative Suite', 'After Effects', 'Figma', 'HTML & CSS', 'JavaScript'],
 };

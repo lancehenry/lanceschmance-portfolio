@@ -9,7 +9,7 @@ export const about = {
     {
       title: 'Background',
       paragraphs: [
-        'My work spans visual design, art direction, UX/UI strategy, motion design, and cross-channel campaigns. I started in an agency, supporting art direction across about 20 client accounts, then earned my MFA in graphic design while teaching undergraduate design studios.',
+        'My work spans visual design, art direction, UX/UI strategy, motion design, and cross-channel campaigns. I studied graphic design at Avila University, started in an agency supporting art direction across about 20 client accounts, then earned my MFA in graphic design at Fort Hays State University while teaching undergraduate design studios. Later, the University of Kansas full stack web development program gave me the skills to build what I design.',
         'Since then I have led design for national certification campaigns, built conversion-focused web and email for a SaaS company, and spent more than seven years shaping the digital brand of a national engineering firm across web, email, and social.',
       ],
     },
