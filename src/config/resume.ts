@@ -4,11 +4,12 @@ export const resume = {
   title: '15+ years leading brand, digital, motion, and',
   highlight: 'campaign work.',
   text: 'Brand, digital, and campaign work across agency, AEC, SaaS, and national certification organizations, from art direction and UX/UI strategy to motion and front-end builds.',
+  /** Four short facts across the top of the resume. Keep each value to a few words. */
   snapshot: [
-    // Add a { label: 'Location', value: '...' } row if you want one.
-    { label: 'Focus', value: 'Creative direction, brand, web, motion' },
-    { label: 'Education', value: 'MFA, Graphic Design, Fort Hays State University' },
-    { label: 'Open to', value: 'Creative Director, Art Director, Brand Manager, Senior Designer' },
+    { label: 'Currently', value: 'Senior Digital Designer, Henderson Engineers' },
+    { label: 'Experience', value: '15+ years, promoted twice' },
+    { label: 'Education', value: 'MFA & BA, Graphic Design' },
+    { label: 'Open to', value: 'Creative & Art Director, Brand Manager, Senior Designer' },
   ],
   experience: [
     {
@@ -130,6 +131,6 @@ export const resume = {
       text: 'An immersive program in front-end and back-end development.',
     },
   ],
-  /** Shown as simple chips. */
+  /** Shown as the last row of Capabilities. */
   tools: ['Adobe Creative Suite', 'After Effects', 'Figma', 'HTML & CSS', 'JavaScript'],
 };
